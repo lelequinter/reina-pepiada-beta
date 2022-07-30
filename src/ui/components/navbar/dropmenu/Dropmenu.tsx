@@ -84,6 +84,8 @@ export const Dropmenu = () => {
   );
 };
 
+//>>>>StyledComponents<<<<\\
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -126,8 +128,6 @@ const Notch = styled.button`
   }
 `;
 
-//>>>>StyledComponents<<<<\\
-
 const NavItem = styled.li`
   .active {
     background-color: ${Colors.primary};
@@ -149,7 +149,7 @@ const NavItem = styled.li`
     color: ${Colors.black};
     &:link,
     &:active {
-      color: ${Colors.black};
+      color: ${Colors.white};
       text-decoration: none;
     }
   }
