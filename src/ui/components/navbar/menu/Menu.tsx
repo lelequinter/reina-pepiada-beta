@@ -66,6 +66,7 @@ const StyledMenu = styled.ul`
   height: 30px;
   gap: 20px;
   list-style-type: none;
+  margin: 5px;
   padding: 0;
 
   @media (max-width: 992px) {
