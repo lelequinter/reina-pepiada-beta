@@ -70,7 +70,14 @@ export const Dropmenu = () => {
         </NavItem>
       </Dropdown>
 
-      <Notch onClick={handleClick}>
+      <Notch
+        onClick={() => setIsOpen(!isOpen)}
+        onBlur={() => {
+          setTimeout(() => {
+            setIsOpen(false);
+          }, 200);
+        }}
+      >
         <FiMoreHorizontal color="#757575" size={20} />
       </Notch>
     </Wrapper>
