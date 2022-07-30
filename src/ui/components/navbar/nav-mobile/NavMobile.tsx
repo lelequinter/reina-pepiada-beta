@@ -13,19 +13,12 @@ import {
 import { Colors } from "../../../../shared/styled/colors";
 
 export const NavMobile = () => {
-  const [activeClass, setActiveClass] = useState(1);
-
   return (
     <Wrapper>
       <MobileMenu>
-        <NavItem
-          className={activeClass === 1 ? "active2" : ""}
-          onClick={() => setActiveClass(1)}
-        >
+        <NavItem>
           <NavLink
-            className={({ isActive }) =>
-              `nav-link home ${isActive ? "active" : ""} `
-            }
+            className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/home"
           >
             <Icon>
@@ -34,14 +27,9 @@ export const NavMobile = () => {
             <Text>Inicio</Text>
           </NavLink>
         </NavItem>
-        <NavItem
-          className={activeClass === 2 ? "active2" : ""}
-          onClick={() => setActiveClass(2)}
-        >
+        <NavItem>
           <NavLink
-            className={({ isActive }) =>
-              `nav-link products ${isActive ? "active" : ""} `
-            }
+            className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/products"
           >
             <Icon>
@@ -50,14 +38,9 @@ export const NavMobile = () => {
             <Text>Productos</Text>
           </NavLink>
         </NavItem>
-        <NavItem
-          className={activeClass === 3 ? "active2" : ""}
-          onClick={() => setActiveClass(3)}
-        >
+        <NavItem>
           <NavLink
-            className={({ isActive }) =>
-              `nav-link gallery ${isActive ? "active" : ""} `
-            }
+            className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/gallery"
           >
             <Icon>
@@ -66,14 +49,9 @@ export const NavMobile = () => {
             <Text>Galeria</Text>
           </NavLink>
         </NavItem>
-        <NavItem
-          className={activeClass === 4 ? "active2" : ""}
-          onClick={() => setActiveClass(4)}
-        >
+        <NavItem>
           <NavLink
-            className={({ isActive }) =>
-              `nav-link about ${isActive ? "active" : ""} `
-            }
+            className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/about"
           >
             <Icon>
@@ -82,14 +60,9 @@ export const NavMobile = () => {
             <Text>Sobre mi</Text>
           </NavLink>
         </NavItem>
-        <NavItem
-          className={activeClass === 5 ? "active2" : ""}
-          onClick={() => setActiveClass(5)}
-        >
+        <NavItem>
           <NavLink
-            className={({ isActive }) =>
-              `nav-link contact ${isActive ? "active" : ""} `
-            }
+            className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/contact"
           >
             <Icon>
@@ -124,11 +97,14 @@ const MobileMenu = styled.ul`
   margin: 5px 0;
   width: 100%;
 
-  .active2 a span {
+  .active span {
     transform: translateY(-35px);
+    svg {
+      color: ${Colors.white};
+    }
   }
 
-  .active2 a p {
+  .active p {
     opacity: 1;
     transform: translateY(5px);
   }
@@ -179,8 +155,9 @@ const Text = styled.p`
 const Indicator = styled.div`
   position: absolute;
   top: -35px;
-  width: 70px;
-  height: 70px;
-  background-color: aqua;
+  width: 65px;
+  height: 65px;
+  background-color: ${Colors.primary};
   border-radius: 50%;
+  border: 6px solid ${Colors.white};
 `;
