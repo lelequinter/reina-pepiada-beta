@@ -3,17 +3,19 @@ import styled from "styled-components";
 import { Dropmenu } from "./dropmenu/Dropmenu";
 import { Menu } from "./menu/Menu";
 import { Colors } from "../../../shared/styled/colors";
+import { NavMobile } from "./nav-mobile/NavMobile";
 
 export const Navbar = () => {
   return (
     <>
       <Header>
-        <Logo className="font" to="/">
+        <Logo to="/">
           Reina Pepiada
         </Logo>
         <Menu />
       </Header>
       <Dropmenu />
+      <NavMobile />
     </>
   );
 };

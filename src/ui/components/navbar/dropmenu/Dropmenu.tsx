@@ -78,7 +78,7 @@ export const Dropmenu = () => {
           }, 200);
         }}
       >
-        <FiMoreHorizontal color="#757575" size={20} />
+        <FiMoreHorizontal color={`${Colors.mid_gray}`} size={20} />
       </Notch>
     </Wrapper>
   );
@@ -96,7 +96,7 @@ const Dropdown = styled.ul<Props>`
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   width: 100%;
   height: 142px;
-  border: 1px solid #cdcdcd;
+  border: 1px solid ${Colors.gray};
   border-top: none;
   padding: 0 10px;
   padding: 0;
