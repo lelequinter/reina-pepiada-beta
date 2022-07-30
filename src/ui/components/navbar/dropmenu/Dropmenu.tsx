@@ -126,6 +126,8 @@ const Notch = styled.button`
   }
 `;
 
+//>>>>StyledComponents<<<<\\
+
 const NavItem = styled.li`
   .active {
     background-color: ${Colors.primary};
@@ -133,7 +135,7 @@ const NavItem = styled.li`
     color: ${Colors.white};
     padding: 3px 30px;
     transition: flex 0.5s ease-in-out;
-    -webkit-transition: all 200ms ease-in-out;
+    -webkit-transition: all 180ms ease-in-out;
   }
 
   a {

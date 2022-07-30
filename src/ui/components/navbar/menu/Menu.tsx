@@ -59,6 +59,8 @@ export const Menu = () => {
   );
 };
 
+//>>>>StyledComponents<<<<\\
+
 const StyledMenu = styled.ul`
   display: flex;
   height: 30px;
