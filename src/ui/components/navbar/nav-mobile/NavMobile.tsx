@@ -1,14 +1,7 @@
-import React, { useState } from "react";
 import styled from "styled-components";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // Iconos
-import {
-  BsShop,
-  BsBag,
-  BsImage,
-  BsInfoCircle,
-  BsChatDots,
-} from "react-icons/bs";
+import { BsShop, BsBag, BsImage, BsInfoCircle, BsChat } from "react-icons/bs";
 
 import { Colors } from "../../../../shared/styled/colors";
 
@@ -66,7 +59,7 @@ export const NavMobile = () => {
             to="/contact"
           >
             <Icon>
-              <BsChatDots />
+              <BsChat />
             </Icon>
             <Text>Contacto</Text>
           </NavLink>
@@ -76,6 +69,8 @@ export const NavMobile = () => {
     </Wrapper>
   );
 };
+
+//>>>>StyledComponents<<<<\\
 
 const Wrapper = styled.div`
   background-color: ${Colors.white};
@@ -106,7 +101,7 @@ const MobileMenu = styled.ul`
 
   .active p {
     opacity: 1;
-    transform: translateY(5px);
+    transform: translateY(10px);
   }
 `;
 
@@ -154,10 +149,24 @@ const Text = styled.p`
 
 const Indicator = styled.div`
   position: absolute;
-  top: -35px;
-  width: 65px;
-  height: 65px;
+  top: -30px;
+  width: 66px;
+  height: 66px;
   background-color: ${Colors.primary};
   border-radius: 50%;
-  border: 6px solid ${Colors.white};
+
+  &::before {
+    content: "";
+    z-index: -100;
+    position: absolute;
+    top: 44%;
+    left: -5px;
+    width: 74px;
+    height: 42px;
+    background-color: ${Colors.white};
+    border: 1px solid ${Colors.gray};
+    border-top: none;
+    border-bottom-left-radius: 42px;
+    border-bottom-right-radius: 42px;
+  }
 `;
