@@ -1,15 +1,23 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+// Context
+import { useContext } from "react";
+import { NavRoutesContext } from "../../../context";
 // Iconos
 import { BsShop, BsBag, BsImage, BsInfoCircle, BsChat } from "react-icons/bs";
-
+// Colors
 import { Colors } from "../../../../shared/styled/colors";
 
 export const NavMobile = () => {
+  const { currentUrl, setCurrentUrl } = useContext(NavRoutesContext) as any;
+
   return (
     <Wrapper>
       <MobileMenu>
-        <NavItem>
+        <NavItem
+          onClick={() => setCurrentUrl("home")}
+          className={`${currentUrl === "home" ? "active" : ""}`}
+        >
           <NavLink
             className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/home"
@@ -20,7 +28,10 @@ export const NavMobile = () => {
             <Text>Inicio</Text>
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem
+          onClick={() => setCurrentUrl("products")}
+          className={`${currentUrl === "products" ? "active" : ""}`}
+        >
           <NavLink
             className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/products"
@@ -31,7 +42,10 @@ export const NavMobile = () => {
             <Text>Productos</Text>
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem
+          onClick={() => setCurrentUrl("gallery")}
+          className={`${currentUrl === "gallery" ? "active" : ""}`}
+        >
           <NavLink
             className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/gallery"
@@ -42,7 +56,10 @@ export const NavMobile = () => {
             <Text>Galeria</Text>
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem
+          onClick={() => setCurrentUrl("about")}
+          className={`${currentUrl === "about" ? "active" : ""}`}
+        >
           <NavLink
             className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/about"
@@ -53,7 +70,10 @@ export const NavMobile = () => {
             <Text>Sobre mi</Text>
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem
+          onClick={() => setCurrentUrl("contact")}
+          className={`${currentUrl === "contact" ? "active" : ""}`}
+        >
           <NavLink
             className={({ isActive }) => `${isActive ? "active" : ""} `}
             to="/contact"
@@ -64,7 +84,7 @@ export const NavMobile = () => {
             <Text>Contacto</Text>
           </NavLink>
         </NavItem>
-        <Indicator />
+        <Indicator className="indicator" />
       </MobileMenu>
     </Wrapper>
   );
@@ -83,6 +103,23 @@ const Wrapper = styled.div`
   border: 1px solid ${Colors.gray};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+
+  ul li .first a .active .indicator {
+    transform: translateX(30px);
+  }
+
+  ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(40px);
+  }
+  ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(40px);
+  }
+  ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(cal(66px * 3));
+  }
+  ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(40px);
+  }
 `;
 
 const MobileMenu = styled.ul`
@@ -155,7 +192,7 @@ const Indicator = styled.div`
   background-color: ${Colors.primary};
   border-radius: 50%;
 
-  &::before {
+  /* &:before {
     content: "";
     z-index: -100;
     position: absolute;
@@ -168,5 +205,5 @@ const Indicator = styled.div`
     border-top: none;
     border-bottom-left-radius: 42px;
     border-bottom-right-radius: 42px;
-  }
+  } */
 `;

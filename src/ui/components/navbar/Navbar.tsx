@@ -4,14 +4,17 @@ import { Dropmenu } from "./dropmenu/Dropmenu";
 import { Menu } from "./menu/Menu";
 import { Colors } from "../../../shared/styled/colors";
 import { NavMobile } from "./nav-mobile/NavMobile";
+// Context
+import { useContext } from "react";
+import { NavRoutesContext } from "../../context";
 
 export const Navbar = () => {
+  const { setCurrentUrl } = useContext(NavRoutesContext) as any;
+
   return (
     <>
-      <Header>
-        <Logo to="/">
-          Reina Pepiada
-        </Logo>
+      <Header onClick={() => setCurrentUrl("home")}>
+        <Logo to="/">Reina Pepiada</Logo>
         <Menu />
       </Header>
       <Dropmenu />
