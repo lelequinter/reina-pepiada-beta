@@ -84,7 +84,7 @@ export const NavMobile = () => {
             <Text>Contacto</Text>
           </NavLink>
         </NavItem>
-        <Indicator className="indicator" />
+        <Indicator />
       </MobileMenu>
     </Wrapper>
   );
@@ -101,24 +101,25 @@ const Wrapper = styled.div`
   bottom: 0;
   width: 100%;
   border: 1px solid ${Colors.gray};
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
 
-  ul li .first a .active .indicator {
-    transform: translateX(30px);
+  ul li:nth-child(1).active ~ div {
+    transform: translateX(calc(64px * -2));
   }
 
-  ul li:nth-child(2).active ~ .indicator {
-    transform: translateX(40px);
+  ul li:nth-child(2).active ~ div {
+    transform: translateX(calc(64px * -1));
   }
-  ul li:nth-child(2).active ~ .indicator {
-    transform: translateX(40px);
+
+  ul li:nth-child(3).active ~ div {
+    transform: translateX(calc(0));
   }
-  ul li:nth-child(2).active ~ .indicator {
-    transform: translateX(cal(66px * 3));
+
+  ul li:nth-child(4).active ~ div {
+    transform: translateX(calc(64px * 1));
   }
-  ul li:nth-child(2).active ~ .indicator {
-    transform: translateX(40px);
+
+  ul li:nth-child(5).active ~ div {
+    transform: translateX(calc(64px * 2));
   }
 `;
 
@@ -127,7 +128,7 @@ const MobileMenu = styled.ul`
   display: flex;
   justify-content: space-evenly;
   margin: 5px 0;
-  width: 100%;
+  width: 320px;
 
   .active span {
     transform: translateY(-35px);
@@ -181,6 +182,7 @@ const Text = styled.p`
   letter-spacing: 0.05em;
   transition: 0.5s;
   opacity: 0;
+  width: max-content;
   transform: translateY(20px);
 `;
 
@@ -191,6 +193,7 @@ const Indicator = styled.div`
   height: 66px;
   background-color: ${Colors.primary};
   border-radius: 50%;
+  transition: 0.5s;
 
   /* &:before {
     content: "";
@@ -200,7 +203,7 @@ const Indicator = styled.div`
     left: -5px;
     width: 74px;
     height: 42px;
-    background-color: ${Colors.white};
+    background-color: transparent;
     border: 1px solid ${Colors.gray};
     border-top: none;
     border-bottom-left-radius: 42px;
